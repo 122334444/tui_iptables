@@ -25,7 +25,6 @@ class WatchForm(npyscreen.FormBaseNew):
         self.parentApp.getForm('WATCH').thread_time = None
         self.parentApp.getForm('WATCH').watch.value = ''
 
-
     def addrule_menu(self, code_of_key_pressed):
         self.off_thread()
         self.parentApp.switchForm('ADDRULE')

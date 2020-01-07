@@ -42,7 +42,6 @@ class DelRuleForm(npyscreen.FormBaseNew):
                 # subprocess.check_output(['python', 'time_now.py']).decode("utf-8")
                 self.parentApp.switchForm('MAIN')
 
-
 class MainButton(npyscreen.ButtonPress):
     def whenPressed(self):
         self.parent.parentApp.switchForm('MAIN')
@@ -50,3 +49,4 @@ class MainButton(npyscreen.ButtonPress):
 class DelRuleButton(npyscreen.ButtonPress):
     def whenPressed(self):
         self.parent.parentApp.getForm('DELRULE').del_rule()
+
