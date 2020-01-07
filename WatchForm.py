@@ -47,6 +47,7 @@ class WatchForm(npyscreen.FormBaseNew):
         else:
             self.parentApp.getForm('WATCH').watch_thread = 1
 
+
     def update_time(self):
         while True:
             if self.watch_thread == 1:
