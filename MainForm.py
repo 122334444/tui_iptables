@@ -3,12 +3,12 @@ import npyscreen
 class MainForm(npyscreen.FormBaseNew):
     def create(self):
         self.buttonWatch = self.add(WatchButton, name='Watch iptables\t(^W)')
-        self.buttonAddRule = self.add(AddRuleButton, name='Add rule iptables\t(^N)')
+        self.buttonAddRule = self.add(AddRuleButton, name='Add rule iptables\t(^S)')
         self.buttonDelRule = self.add(DelRuleButton, name='Del rule iptables\t(^D)')
         self.buttonExit = self.add(ExitButton, name='Exit application\t(^Q)')
 
         self.add_handlers({"^W": self.watch_menu})
-        self.add_handlers({"^N": self.addrule_menu})
+        self.add_handlers({"^S": self.addrule_menu})
         self.add_handlers({"^D": self.delrule_menu})
         self.add_handlers({"^Q": self.exit_app})
 

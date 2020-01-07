@@ -1,6 +1,4 @@
 import subprocess
-import time
-import threading
 import npyscreen
 
 class DelRuleForm(npyscreen.FormBaseNew):
@@ -10,7 +8,7 @@ class DelRuleForm(npyscreen.FormBaseNew):
         self.buttonBack = self.add(MainButton, name='Back menu (^B)')
 
         self.add_handlers({"^W": self.watch_menu})
-        self.add_handlers({"^N": self.addrule_menu})
+        self.add_handlers({"^S": self.addrule_menu})
         self.add_handlers({"^B": self.back_menu})
         self.add_handlers({"^Q": self.exit_menu})
 

@@ -15,7 +15,7 @@ class WatchForm(npyscreen.FormBaseNew):
         self.thread_time.daemon = True
         self.thread_time.start()
 
-        self.add_handlers({"^N": self.addrule_menu})
+        self.add_handlers({"^S": self.addrule_menu})
         self.add_handlers({"^D": self.delrule_menu})
         self.add_handlers({"^B": self.back_menu})
         self.add_handlers({"^Q": self.exit_menu})

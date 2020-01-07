@@ -4,6 +4,7 @@ My iptables TUI application
 
 ╭─[SRG512] as root in ~                                                                                                                                                                                                       12-27 04:28:18
 ╰──➤  git clone https://github.com/122334444/tui_iptables.git
+
 Cloning into 'tui_iptables'...
 remote: Enumerating objects: 589, done.
 remote: Counting objects: 100% (589/589), done.
