@@ -9,16 +9,19 @@ class WatchForm(npyscreen.FormBaseNew):
         self.watch = self.add(npyscreen.MultiLineEdit, name='')
         self.watch.editable = False
         self.watch.wrap = True
-        self.watch_thread = 0
 
-        self.thread_time = threading.Thread(target=self.update_time, args=())
-        self.thread_time.daemon = True
-        self.thread_time.start()
+        self.watch_thread = 0
+        self.on_thread()
 
         self.add_handlers({"^S": self.addrule_menu})
         self.add_handlers({"^D": self.delrule_menu})
         self.add_handlers({"^B": self.back_menu})
         self.add_handlers({"^Q": self.exit_menu})
+
+    def on_thread(self):
+        self.thread_time = threading.Thread(target=self.update_time, args=())
+        self.thread_time.daemon = True
+        self.thread_time.start()
 
     def off_thread(self):
         self.parentApp.getForm('WATCH').watch_thread = 0
@@ -38,15 +41,17 @@ class WatchForm(npyscreen.FormBaseNew):
         self.parentApp.switchForm('MAIN')
 
     def exit_menu(self, code_of_key_pressed):
+        self.parentApp.getForm('WATCH').watch_thread = 0
         if npyscreen.notify_ok_cancel(message='Exit?', title='', form_color='CONTROL'):
-            self.off_thread()
             self.parentApp.switchForm(None)
+        else:
+            self.parentApp.getForm('WATCH').watch_thread = 1
 
     def update_time(self):
         while True:
             if self.watch_thread == 1:
-                self.watch.value = str(subprocess.check_output(['bash', 'sh_script/ls_iptables.sh']).decode("utf-8"))
-                # self.watch.value = str(subprocess.check_output(['python', 'time_now.py']).decode("utf-8"))
+                # self.watch.value = str(subprocess.check_output(['bash', 'sh_script/ls_iptables.sh']).decode("utf-8"))
+                self.watch.value = str(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
                 self.watch.display()
             time.sleep(1)
 
