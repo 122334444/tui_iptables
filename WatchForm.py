@@ -50,8 +50,8 @@ class WatchForm(npyscreen.FormBaseNew):
     def update_time(self):
         while True:
             if self.watch_thread == 1:
-                # self.watch.value = str(subprocess.check_output(['bash', 'sh_script/ls_iptables.sh']).decode("utf-8"))
-                self.watch.value = str(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+                self.watch.value = str(subprocess.check_output(['bash', 'sh_script/ls_iptables.sh']).decode("utf-8"))
+                # self.watch.value = str(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
                 self.watch.display()
             time.sleep(1)
 
