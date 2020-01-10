@@ -9,6 +9,7 @@ class WatchForm(npyscreen.FormBaseNew):
         self.watch = self.add(npyscreen.MultiLineEdit, name='')
         self.watch.editable = False
         self.watch.wrap = True
+        self.watch.color = 'STANDOUT'
 
         self.watch_thread = 0
         self.on_thread()
@@ -57,7 +58,5 @@ class WatchForm(npyscreen.FormBaseNew):
 
 class MainButton(npyscreen.ButtonPress):
     def whenPressed(self):
-        self.parent.parentApp.getForm('WATCH').watch_thread = 0
-        self.parent.parentApp.getForm('WATCH').thread_time = None
-        self.parent.parentApp.getForm('WATCH').watch.value = ''
+        self.parent.parentApp.getForm('WATCH').off_thread()
         self.parent.parentApp.switchForm('MAIN')
